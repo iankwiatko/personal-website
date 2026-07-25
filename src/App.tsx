@@ -105,22 +105,12 @@ function App() {
               skills!
             </p>
             <p className="about-note">
-              Here are a few snapshots of my GitHub activity and contribution
-              habits.
+              Below you will find a few of my projects I have worked on, along
+              with a short description of each, and the techologies used to
+              build them. You can also view my GitHub profile for a more
+              complete list of my work.
             </p>
 
-            {user && (
-              <div className="about-actions">
-                <a
-                  className="button primary"
-                  href={user.html_url}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  View GitHub profile
-                </a>
-              </div>
-            )}
           </div>
 
           <div className="stats-grid">
@@ -129,7 +119,12 @@ function App() {
                 Loading GitHub data...
               </div>
             ) : user ? (
-              <>
+              <a
+                className="github-card-link"
+                href={user.html_url}
+                target="_blank"
+                rel="noreferrer"
+              >
                 <div className="github-card">
                   <div className="github-card__header">
                     <img
@@ -162,11 +157,7 @@ function App() {
                     </div>
                   </div>
                 </div>
-                <img
-                  src="https://github-readme-streak-stats.herokuapp.com/?user=iankwiatko&theme=github-dark-blue&hide_border=true"
-                  alt="Ian's GitHub streak"
-                />
-              </>
+              </a>
             ) : (
               <div className="github-card github-card--fallback">
                 GitHub stats are temporarily unavailable. Visit my profile
@@ -181,6 +172,26 @@ function App() {
                 </a>
               </div>
             )}
+          </div>
+
+          <div className="project-grid project-list">
+            <a
+              className="project-card"
+              href="https://ridepare.com"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <div className="project-card__header">
+                <h3>RidePare</h3>
+                <span>ridepare.com</span>
+              </div>
+              <p>
+                RidePare is our attempt to improve mobility efficiency,
+                accessibility and sustainability in our community by providing
+                fare and journey information for various rideshare programs such
+                as Uber, Lyft, Lime and CitiBikes.
+              </p>
+            </a>
           </div>
         </article>
       </section>

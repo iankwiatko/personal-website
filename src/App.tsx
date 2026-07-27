@@ -100,17 +100,16 @@ function App() {
         <article className="content-card about-card">
           <div className="about-copy">
             <h2>My Projects</h2>
-            <p>
-              I’m always working on something new to learn and improve my
-              skills!
+            <p className="about-note">
+              I'm always working on something new to learn new technologies and
+              improve my skills.
             </p>
             <p className="about-note">
-              Below you will find a few of my projects I have worked on, along
-              with a short description of each, and the techologies used to
-              build them. You can also view my GitHub profile for a more
-              complete list of my work.
+              Below you will find a few of my notable projects I have worked on,
+              along with a short description of each, and the frameworks used to
+              build them. Most of them have been hosted as well! You can also
+              view my GitHub profile for a more complete list of my work.
             </p>
-
           </div>
 
           <div className="stats-grid">
@@ -186,10 +185,14 @@ function App() {
                 <span>ridepare.com</span>
               </div>
               <p>
-                RidePare is our attempt to improve mobility efficiency,
+                RidePare is an attempt to improve mobility efficiency,
                 accessibility and sustainability in our community by providing
                 fare and journey information for various rideshare programs such
-                as Uber, Lyft, Lime and CitiBikes.
+                as Uber, Lyft, Lime and CitiBikes. This project was made in 24
+                hour for the 2024 Hack OH/IO Event, and was built using React
+                for the frontend and Express for the backend, incorporating some
+                Google and OpenSource APIs for address, distance, routing and
+                map generation.
               </p>
             </a>
           </div>
@@ -201,8 +204,8 @@ function App() {
           <div className="contact-intro">
             <h2>Contact</h2>
             <p>
-              I’m always open to new conversations about build work, design, and
-              creative ideas.
+              Feel free to reach out to me via email or connect with me on
+              LinkedIn or GitHub.
             </p>
           </div>
 

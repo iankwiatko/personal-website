@@ -1,65 +1,9 @@
-import { useEffect, useState } from "react";
-import "./App.css";
+import "./Homepage.css";
 
-type GitHubUser = {
-  login: string;
-  name: string | null;
-  bio: string | null;
-  avatar_url: string;
-  html_url: string;
-  public_repos: number;
-  followers: number;
-  following: number;
-};
+import { useHomepage } from "./useHomepage";
 
-function App() {
-  const [user, setUser] = useState<GitHubUser | null>(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    let isMounted = true;
-    const controller = new AbortController();
-
-    async function loadGitHubUser() {
-      try {
-        const response = await fetch(
-          "https://api.github.com/users/iankwiatko",
-          {
-            headers: {
-              Accept: "application/vnd.github+json",
-            },
-            signal: controller.signal,
-          },
-        );
-
-        if (!response.ok) {
-          throw new Error("Unable to load GitHub profile");
-        }
-
-        const data = (await response.json()) as GitHubUser;
-
-        if (isMounted) {
-          setUser(data);
-        }
-      } catch (error) {
-        console.error("Failed to load GitHub stats", error);
-        if (isMounted) {
-          setUser(null);
-        }
-      } finally {
-        if (isMounted) {
-          setLoading(false);
-        }
-      }
-    }
-
-    void loadGitHubUser();
-
-    return () => {
-      isMounted = false;
-      controller.abort();
-    };
-  }, []);
+function Homepage() {
+  const { githubUserData, isLoading } = useHomepage();
 
   return (
     <main className="page">
@@ -113,14 +57,14 @@ function App() {
           </div>
 
           <div className="stats-grid">
-            {loading ? (
+            {isLoading ? (
               <div className="github-card github-card--loading">
                 Loading GitHub data...
               </div>
-            ) : user ? (
+            ) : githubUserData ? (
               <a
                 className="github-card-link"
-                href={user.html_url}
+                href={githubUserData.html_url}
                 target="_blank"
                 rel="noreferrer"
               >
@@ -128,30 +72,31 @@ function App() {
                   <div className="github-card__header">
                     <img
                       className="github-avatar"
-                      src={user.avatar_url}
-                      alt={`${user.login} avatar`}
+                      src={githubUserData.avatar_url}
+                      alt={`${githubUserData.login} avatar`}
                     />
                     <div>
-                      <h3>{user.name ?? user.login}</h3>
-                      <p>@{user.login}</p>
+                      <h3>{githubUserData.name ?? githubUserData.login}</h3>
+                      <p>@{githubUserData.login}</p>
                     </div>
                   </div>
 
                   <p className="github-bio">
-                    {user.bio ?? "Building thoughtful web experiences."}
+                    {githubUserData.bio ??
+                      "Building thoughtful web experiences."}
                   </p>
 
                   <div className="github-stats">
                     <div className="github-stat">
-                      <strong>{user.public_repos}</strong>
+                      <strong>{githubUserData.public_repos}</strong>
                       <span>Repos</span>
                     </div>
                     <div className="github-stat">
-                      <strong>{user.followers}</strong>
+                      <strong>{githubUserData.followers}</strong>
                       <span>Followers</span>
                     </div>
                     <div className="github-stat">
-                      <strong>{user.following}</strong>
+                      <strong>{githubUserData.following}</strong>
                       <span>Following</span>
                     </div>
                   </div>
@@ -233,7 +178,11 @@ function App() {
 
             <a
               className="contact-tile"
-              href={user ? user.html_url : "https://github.com/iankwiatko"}
+              href={
+                githubUserData
+                  ? githubUserData.html_url
+                  : "https://github.com/iankwiatko"
+              }
               target="_blank"
               rel="noreferrer"
             >
@@ -249,4 +198,4 @@ function App() {
     </main>
   );
 }
-export default App;
+export default Homepage;

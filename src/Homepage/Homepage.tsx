@@ -151,19 +151,29 @@ function Homepage() {
               )}
             </div>
           </div>
-
+          {/* RidePare */}
           <div className="mt-5 grid gap-3">
-            <a
-              className="flex flex-col gap-3 rounded-[1.25rem] border border-white/10 bg-slate-800/70 p-5 text-slate-100 no-underline transition duration-200 hover:-translate-y-0.5 hover:bg-slate-700/80 hover:shadow-[0_14px_30px_rgba(2,6,23,0.24)]"
-              href="https://ridepare.com"
-              target="_blank"
-              rel="noreferrer"
-            >
+            <div className="flex flex-col gap-3 rounded-[1.25rem] border border-white/10 bg-slate-800/70 p-5 text-slate-100">
               <div className="flex flex-wrap items-start justify-between gap-3">
                 <h3 className="text-lg font-semibold">RidePare</h3>
-                <span className="rounded-full bg-sky-400/10 px-3 py-1 text-sm font-semibold text-slate-300">
-                  ridepare.com
-                </span>
+                <div className="flex flex-wrap gap-2">
+                  <a
+                    className="rounded-full bg-slate-700/70 px-3 py-1 text-sm font-semibold text-slate-300 no-underline transition duration-200 hover:-translate-y-0.5 hover:bg-slate-600 hover:shadow-[0_8px_20px_rgba(2,6,23,0.2)]"
+                    href="https://github.com/iankwiatko/ridepare"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    source code
+                  </a>
+                  <a
+                    className="rounded-full bg-sky-400/10 px-3 py-1 text-sm font-semibold text-slate-300 no-underline transition duration-200 hover:-translate-y-0.5 hover:bg-sky-400/20 hover:shadow-[0_8px_20px_rgba(2,6,23,0.2)]"
+                    href="https://ridepare.com"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    ridepare.com
+                  </a>
+                </div>
               </div>
 
               <p className="text-sm leading-7 text-slate-300">
@@ -182,7 +192,42 @@ function Homepage() {
                 <TechnologyTag name="express" />
                 <TechnologyTag name="vercel" />
               </div>
-            </a>
+            </div>
+          </div>
+          {/* ScheduleMaster */}
+          <div className="mt-5 grid gap-3">
+            <div className="flex flex-col gap-3 rounded-[1.25rem] border border-white/10 bg-slate-800/70 p-5 text-slate-100">
+              <div className="flex flex-wrap items-start justify-between gap-3">
+                <h3 className="text-lg font-semibold">Schedule Master</h3>
+                <div className="flex flex-wrap gap-2">
+                  <a
+                    className="rounded-full bg-slate-700/70 px-3 py-1 text-sm font-semibold text-slate-300 no-underline transition duration-200 hover:-translate-y-0.5 hover:bg-slate-600 hover:shadow-[0_8px_20px_rgba(2,6,23,0.2)]"
+                    href="https://github.com/iankwiatko/schedulemaster"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    source code
+                  </a>
+                </div>
+              </div>
+
+              <p className="text-sm leading-7 text-slate-300">
+                Schedule Master is a interactive schedule made for my college
+                senior year mobile applications class at OSU. It allows users to
+                create an account and add various tasks with tags, priority, a
+                description and various other attributes that can be manipulated
+                after the task is created. This project was built with Kotlin
+                for the user interface, Firebase for the backend database and
+                authentication, and was tested using automated unit tests and UI
+                tests built with JUnit.
+              </p>
+
+              <div className="mt-2 flex flex-wrap gap-2">
+                <TechnologyTag name="kotlin" />
+                <TechnologyTag name="firebase" />
+                <TechnologyTag name="junit" />
+              </div>
+            </div>
           </div>
         </article>
       </section>

@@ -6,7 +6,7 @@ This is my personal website to display personal projects in one neat place. Feat
 
 ## Authors
 
-Nick Webber and Ian Kwiatkowski
+Ian Kwiatkowski
 
 ## Features
 

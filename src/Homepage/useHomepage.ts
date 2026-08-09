@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import type { githubUserData } from "../Types/githubUserData";
+import type { githubUserData } from "../Data/githubUserData";
 
 export function useHomepage() {
   const [githubUserData, setGithubUserData] = useState<githubUserData | null>(

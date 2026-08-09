@@ -1,6 +1,7 @@
-import { Code, FolderGit2, Link, Mail } from "lucide-react";
+import { FolderGit2, Mail } from "lucide-react";
 
-import { TechnologyTag } from "./technologyTag";
+import { ProjectCard } from "./ProjectCard";
+import { projects } from "../Data/projectCardData";
 import { useHomepage } from "./useHomepage";
 
 function Homepage() {
@@ -26,17 +27,14 @@ function Homepage() {
               Software Engineer II • Full-Stack Developer
             </h2>
             <p className="mt-4 text-base leading-8 text-slate-400">
-              Welcome to my website! I'm Ian, a Software Engineer and BS of
-              Computer Science and Engineering graduate from The Ohio State
-              University, with hands-on experience in full-stack agile web
-              development using React.JS, TypeScript, Ruby on Rails, and other
-              industry-standard tools. I've worked on diverse projects,
-              including modernizing customer facing websites from Angular to
-              React, optimizing APIs that handle thousands of daily requests,
-              and collaborating with multiple teams to deliver projects on time.
-              In my free time, I also enjoy designing web-apps to fix problems I
-              have, learning and exploring new technologies, and exploring all
-              things computer related!
+              Software Engineer and BS of Computer Science and Engineering
+              graduate from The Ohio State University, with hands-on experience
+              in full-stack agile web development. I've worked on diverse
+              projects, including building web applications used by thousands of
+              users daily to optimizing APIs that handle multiple requests a
+              minute. I also enjoy designing web-apps to fix problems I have,
+              learning and exploring new technologies, and exploring all things
+              computer related!
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3">
@@ -153,87 +151,9 @@ function Homepage() {
               )}
             </div>
           </div>
-          {/* RidePare */}
-          <div className="mt-5 grid gap-3">
-            <div className="flex flex-col gap-3 rounded-[1.25rem] border border-white/10 bg-slate-800/70 p-5 text-slate-100">
-              <div className="flex flex-wrap items-start justify-between gap-3">
-                <h3 className="text-lg font-semibold">RidePare</h3>
-                <div className="flex flex-wrap gap-2">
-                  <a
-                    className="inline-flex flex-wrap items-center gap-1 rounded-full bg-slate-700/70 px-3 py-1 text-sm font-semibold text-slate-300 no-underline transition duration-200 hover:-translate-y-0.5 hover:bg-slate-600 hover:shadow-[0_8px_20px_rgba(2,6,23,0.2)]"
-                    href="https://github.com/iankwiatko/ridepare"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <span>source code</span>
-                    <Code size={14} className="mt-0.5" />
-                  </a>
-                  <a
-                    className="inline-flex flex-wrap items-center gap-1 rounded-full bg-sky-400/10 px-3 py-1 text-sm font-semibold text-slate-300 no-underline transition duration-200 hover:-translate-y-0.5 hover:bg-sky-400/20 hover:shadow-[0_8px_20px_rgba(2,6,23,0.2)]"
-                    href="https://ridepare.com"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <span>ridepare.com</span>
-                    <Link size={14} className="mt-0.5" />
-                  </a>
-                </div>
-              </div>
-
-              <p className="text-sm leading-7 text-slate-300">
-                RidePare is an attempt to improve mobility efficiency,
-                accessibility and sustainability in our community by providing
-                fare and journey information for various rideshare programs such
-                as Uber, Lyft, Lime and CitiBikes. This project was made in 24
-                hour for the 2024 Hack OH/IO Event, and was built using React
-                for the frontend and Express for the backend, incorporating some
-                Google and OpenSource APIs for address, distance, routing and
-                map generation.
-              </p>
-
-              <div className="mt-2 flex flex-wrap gap-2">
-                <TechnologyTag name="react" />
-                <TechnologyTag name="express" />
-                <TechnologyTag name="vercel" />
-              </div>
-            </div>
-          </div>
-          {/* ScheduleMaster */}
-          <div className="mt-5 grid gap-3">
-            <div className="flex flex-col gap-3 rounded-[1.25rem] border border-white/10 bg-slate-800/70 p-5 text-slate-100">
-              <div className="flex flex-wrap items-start justify-between gap-3">
-                <h3 className="text-lg font-semibold">Schedule Master</h3>
-                <div className="flex flex-wrap gap-2">
-                  <a
-                    className="inline-flex items-center gap-1 rounded-full bg-slate-700/70 px-3 py-1 text-sm font-semibold text-slate-300 no-underline transition duration-200 hover:-translate-y-0.5 hover:bg-slate-600 hover:shadow-[0_8px_20px_rgba(2,6,23,0.2)]"
-                    href="https://github.com/iankwiatko/schedulemaster"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <span>source code</span>
-                    <Code size={14} className="mt-0.5" />
-                  </a>
-                </div>
-              </div>
-
-              <p className="text-sm leading-7 text-slate-300">
-                Schedule Master is a interactive schedule made for my college
-                senior year mobile applications class at OSU. It allows users to
-                create an account and add various tasks with tags, priority, a
-                description and various other attributes that can be manipulated
-                after the task is created. This project was built with Kotlin
-                for the user interface, Firebase for the backend database and
-                authentication, and was tested using automated unit tests and UI
-                tests built with JUnit.
-              </p>
-
-              <div className="mt-2 flex flex-wrap gap-2">
-                <TechnologyTag name="kotlin" />
-                <TechnologyTag name="firebase" />
-                <TechnologyTag name="junit" />
-              </div>
-            </div>
-          </div>
+          {projects.map((project) => (
+            <ProjectCard key={project.title} project={project} />
+          ))}
         </article>
       </section>
 

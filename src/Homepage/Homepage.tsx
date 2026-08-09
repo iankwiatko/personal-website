@@ -1,3 +1,5 @@
+import { Code, FolderGit2, Link, Mail } from "lucide-react";
+
 import { TechnologyTag } from "./technologyTag";
 import { useHomepage } from "./useHomepage";
 
@@ -158,20 +160,22 @@ function Homepage() {
                 <h3 className="text-lg font-semibold">RidePare</h3>
                 <div className="flex flex-wrap gap-2">
                   <a
-                    className="rounded-full bg-slate-700/70 px-3 py-1 text-sm font-semibold text-slate-300 no-underline transition duration-200 hover:-translate-y-0.5 hover:bg-slate-600 hover:shadow-[0_8px_20px_rgba(2,6,23,0.2)]"
+                    className="inline-flex flex-wrap items-center gap-1 rounded-full bg-slate-700/70 px-3 py-1 text-sm font-semibold text-slate-300 no-underline transition duration-200 hover:-translate-y-0.5 hover:bg-slate-600 hover:shadow-[0_8px_20px_rgba(2,6,23,0.2)]"
                     href="https://github.com/iankwiatko/ridepare"
                     target="_blank"
                     rel="noreferrer"
                   >
-                    source code
+                    <span>source code</span>
+                    <Code size={14} className="mt-0.5" />
                   </a>
                   <a
-                    className="rounded-full bg-sky-400/10 px-3 py-1 text-sm font-semibold text-slate-300 no-underline transition duration-200 hover:-translate-y-0.5 hover:bg-sky-400/20 hover:shadow-[0_8px_20px_rgba(2,6,23,0.2)]"
+                    className="inline-flex flex-wrap items-center gap-1 rounded-full bg-sky-400/10 px-3 py-1 text-sm font-semibold text-slate-300 no-underline transition duration-200 hover:-translate-y-0.5 hover:bg-sky-400/20 hover:shadow-[0_8px_20px_rgba(2,6,23,0.2)]"
                     href="https://ridepare.com"
                     target="_blank"
                     rel="noreferrer"
                   >
-                    ridepare.com
+                    <span>ridepare.com</span>
+                    <Link size={14} className="mt-0.5" />
                   </a>
                 </div>
               </div>
@@ -201,12 +205,13 @@ function Homepage() {
                 <h3 className="text-lg font-semibold">Schedule Master</h3>
                 <div className="flex flex-wrap gap-2">
                   <a
-                    className="rounded-full bg-slate-700/70 px-3 py-1 text-sm font-semibold text-slate-300 no-underline transition duration-200 hover:-translate-y-0.5 hover:bg-slate-600 hover:shadow-[0_8px_20px_rgba(2,6,23,0.2)]"
+                    className="inline-flex items-center gap-1 rounded-full bg-slate-700/70 px-3 py-1 text-sm font-semibold text-slate-300 no-underline transition duration-200 hover:-translate-y-0.5 hover:bg-slate-600 hover:shadow-[0_8px_20px_rgba(2,6,23,0.2)]"
                     href="https://github.com/iankwiatko/schedulemaster"
                     target="_blank"
                     rel="noreferrer"
                   >
-                    source code
+                    <span>source code</span>
+                    <Code size={14} className="mt-0.5" />
                   </a>
                 </div>
               </div>
@@ -248,11 +253,11 @@ function Homepage() {
               href="mailto:iankwiatko@gmail.com"
             >
               <span className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-teal-600 to-blue-600 font-semibold text-white">
-                ✉
+                <Mail size={20} className="mt-0.5" />
               </span>
               <div className="flex flex-col gap-1">
-                <strong className="text-[0.95rem]">Email</strong>
-                <span className="text-[0.85rem] text-slate-400">
+                <strong className="text-base">Email</strong>
+                <span className="text-sm text-slate-400">
                   iankwiatko@gmail.com
                 </span>
               </div>
@@ -264,14 +269,12 @@ function Homepage() {
               target="_blank"
               rel="noreferrer"
             >
-              <span className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-teal-600 to-blue-600 font-semibold text-white">
+              <span className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-teal-600 to-blue-600 font-semibold text-white text-xl">
                 in
               </span>
               <div className="flex flex-col gap-1">
-                <strong className="text-[0.95rem]">LinkedIn</strong>
-                <span className="text-[0.85rem] text-slate-400">
-                  Connect with me
-                </span>
+                <strong className="text-base">LinkedIn</strong>
+                <span className="text-sm text-slate-400">Connect with me</span>
               </div>
             </a>
 
@@ -286,13 +289,11 @@ function Homepage() {
               rel="noreferrer"
             >
               <span className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-teal-600 to-blue-600 font-semibold text-white">
-                GH
+                <FolderGit2 size={20} className="mt-0.5" />
               </span>
               <div className="flex flex-col gap-1">
-                <strong className="text-[0.95rem]">GitHub</strong>
-                <span className="text-[0.85rem] text-slate-400">
-                  See my projects
-                </span>
+                <strong className="text-base">GitHub</strong>
+                <span className="text-sm text-slate-400">See my projects</span>
               </div>
             </a>
           </div>

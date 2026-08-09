@@ -61,15 +61,11 @@ function Homepage() {
             <div className="flex flex-col gap-3">
               <h2 className="text-xl font-semibold text-slate-50">Projects</h2>
               <p className="text-sm text-slate-300">
-                I'm always working on something new to learn new technologies
-                and improve my skills.
-              </p>
-              <p className="text-sm text-slate-300">
                 Below you will find a few of my notable projects I have worked
-                on, along with a short description of each, and the frameworks
-                used to build them. Most of them have been hosted as well! You
-                can also view my GitHub profile for a more complete list of my
-                work.
+                on along with a short description of each. The tags indicate the
+                technologies used, and links can be found to the source code or
+                live site if applicable. You can also view my GitHub profile for
+                a more complete list of my work.
               </p>
             </div>
 

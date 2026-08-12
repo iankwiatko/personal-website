@@ -13,6 +13,19 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    title: "Sleeperdex",
+    description:
+      "Sleeperdex is a web application designed to help collectors find value in their bulk trading cards. It allows users to organize cards by set and set a minimum price in order to filter out cards that may have hidden value. This project was built using React and hosted on Vercel, like many of my other projects. The goal of this project was to gain experience using public APIs while also gaining exposure to GraphQL, which is used by the API that this project utilizes.",
+    tech: ["react", "vercel", "graphql"],
+    links: [
+      {
+        label: "source code",
+        href: "https://github.com/iankwiatko/sleeperdex",
+        icon: "code",
+      },
+    ],
+  },
+  {
     title: "RidePare",
     description:
       "RidePare is an attempt to improve mobility efficiency, accessibility and sustainability in our community by providing fare and journey information for various rideshare programs such as Uber, Lyft, Lime and CitiBikes. This project was made in 24 hour for the 2024 Hack OH/IO Event, and was built using React for the frontend and Express for the backend, incorporating some Google and OpenSource APIs for address, distance, routing and map generation.",

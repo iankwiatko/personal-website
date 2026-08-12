@@ -6,6 +6,7 @@ export const tag = {
   kotlin: { label: "Kotlin", colorClass: "bg-purple-600" },
   firebase: { label: "Firebase", colorClass: "bg-red-500" },
   junit: { label: "JUnit", colorClass: "bg-green-500" },
+  graphql: { label: "GraphQL", colorClass: "bg-pink-500" },
 } as const;
 
 export type TagName = keyof typeof tag;

@@ -1,6 +1,6 @@
 import { Code, Link } from "lucide-react";
 
-import type { Project } from "../Data/projectCardData";
+import type { Project } from "../data/projects";
 import { TechnologyTag } from "./TechnologyTag";
 
 type ProjectCardProps = {

@@ -1,11 +1,11 @@
 import { FolderGit2, Mail } from "lucide-react";
 
-import { ProjectCard } from "./ProjectCard";
-import { projects } from "../Data/projectCardData";
-import { useHomepage } from "./useHomepage";
+import { ProjectCard } from "../../components/ProjectCard";
+import { projects } from "../../data/projects";
+import { useGithubUser } from "./useGithubUser";
 
 function Homepage() {
-  const { githubUserData, isLoading } = useHomepage();
+  const { githubUserData, isLoading } = useGithubUser();
 
   const sectionClass =
     "relative mx-auto w-full max-w-5xl pt-4 scroll-mt-6 before:absolute before:top-0 before:left-1/2 before:h-px before:w-[min(68%,680px)] before:-translate-x-1/2 before:bg-gradient-to-r before:from-transparent before:via-slate-400/25 before:to-transparent before:content-['']";

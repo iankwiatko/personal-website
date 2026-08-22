@@ -1,4 +1,4 @@
-import { tag, type TagName } from "../Data/tagData";
+import { tag, type TagName } from "../data/tags";
 
 type TagProps = {
   name: TagName;

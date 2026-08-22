@@ -1,4 +1,4 @@
-import type { TagName } from "./tagData";
+import type { TagName } from "./tags";
 
 export type Project = {
   title: string;

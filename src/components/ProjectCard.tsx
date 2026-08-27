@@ -1,4 +1,4 @@
-import { Code, Link } from "lucide-react";
+import { Bot, Code, Link } from "lucide-react";
 
 import type { Project } from "../data/projects";
 import { TechnologyTag } from "./TechnologyTag";
@@ -17,10 +17,12 @@ export function ProjectCard({ project }: ProjectCardProps) {
             {project.links.map((link) => (
               <a
                 key={link.href}
-                className={`inline-flex items-center gap-1 rounded-full px-3 py-1 text-sm font-semibold text-slate-300 no-underline transition duration-200 hover:-translate-y-0.5 ${
+                className={`inline-flex items-center gap-1 rounded-full px-3 py-1 text-sm font-semibold text-slate-300 no-underline transition duration-200 ${
                   link.icon === "code"
-                    ? "bg-slate-700/70 hover:bg-slate-600 hover:shadow-[0_8px_20px_rgba(2,6,23,0.2)]"
-                    : "bg-sky-400/10 hover:bg-sky-400/20 hover:shadow-[0_8px_20px_rgba(2,6,23,0.2)]"
+                    ? "bg-slate-700/70 hover:-translate-y-0.5 hover:bg-slate-600 hover:shadow-[0_8px_20px_rgba(2,6,23,0.2)]"
+                    : link.icon === "indev"
+                      ? "bg-violet-500/15 text-violet-200"
+                      : "bg-sky-400/10 hover:-translate-y-0.5 hover:bg-sky-400/20 hover:shadow-[0_8px_20px_rgba(2,6,23,0.2)]"
                 }`}
                 href={link.href}
                 target="_blank"
@@ -29,6 +31,8 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 <span>{link.label}</span>
                 {link.icon === "code" ? (
                   <Code size={14} className="mt-0.5" />
+                ) : link.icon === "indev" ? (
+                  <Bot size={16} className="mt-0.5" />
                 ) : (
                   <Link size={14} className="mt-0.5" />
                 )}

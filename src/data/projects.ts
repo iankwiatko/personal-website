@@ -24,6 +24,11 @@ export const projects: Project[] = [
         icon: "indev",
       },
       {
+        label: "sleeperdex.com",
+        href: "https://sleeperdex.com",
+        icon: "link",
+      },
+      {
         label: "source code",
         href: "https://github.com/iankwiatko/sleeperdex",
         icon: "code",

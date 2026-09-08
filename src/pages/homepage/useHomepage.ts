@@ -36,6 +36,7 @@ export function useGithubUser() {
           ...githubUserQuery.data,
           recentCommits: githubCommitsQuery.data ?? [],
           contributions: githubContributionsQuery.data ?? [],
+          contributionsUnavailable: Boolean(githubContributionsQuery.error),
         }
       : null,
     isLoading:

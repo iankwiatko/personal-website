@@ -1,3 +1,4 @@
+import type { GithubContributionData } from "./githubContributionData.ts";
 import type { githubCommitData } from "./githubCommitData.ts";
 
 export type githubUserData = {
@@ -10,4 +11,6 @@ export type githubUserData = {
   followers: number;
   following: number;
   recentCommits: githubCommitData[];
+  contributions: GithubContributionData[];
+  contributionsUnavailable: boolean;
 };

@@ -33,21 +33,21 @@ function Homepage() {
               in full-stack agile web development. I've worked on diverse
               projects, including building web applications used by thousands of
               users daily to optimizing APIs that handle multiple requests a
-              minute. I also enjoy designing web-apps to fix problems I have,
-              learning and exploring new technologies, and exploring all things
-              computer related!
+              minute. I also enjoy designing web apps to solve problems I have,
+              learning new technologies, and exploring all things computer
+              related!
             </p>
 
             <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-base font-medium text-slate-400">
               <a
-                className="inline-flex items-center gap-2 transition-colors hover:text-slate-50"
+                className="inline-flex items-center gap-2 transition-colors hover:text-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/70"
                 href="mailto:iankwiatko@gmail.com"
               >
                 <Mail size={18} />
                 Email
               </a>
               <a
-                className="inline-flex items-center gap-1 transition-colors hover:text-slate-50"
+                className="inline-flex items-center gap-1 transition-colors hover:text-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/70"
                 href="https://www.linkedin.com/in/iankwiatko"
                 target="_blank"
                 rel="noreferrer"
@@ -56,7 +56,7 @@ function Homepage() {
                 LinkedIn
               </a>
               <a
-                className="inline-flex items-center gap-2 transition-colors hover:text-slate-50"
+                className="inline-flex items-center gap-2 transition-colors hover:text-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/70"
                 href="https://github.com/iankwiatko"
                 target="_blank"
                 rel="noreferrer"
@@ -82,7 +82,7 @@ function Homepage() {
                   <div className="grid gap-6 md:grid-cols-2 md:items-stretch">
                     <div className="flex flex-col gap-3 md:pt-3">
                       <a
-                        className="group flex flex-col gap-3 rounded-xl p-2 -m-2 text-inherit no-underline transition-colors duration-200 hover:bg-white/5 sm:flex-row sm:items-center sm:justify-between"
+                        className="group -m-2 flex flex-col gap-3 rounded-xl p-2 text-inherit no-underline transition-colors duration-200 hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/70 sm:flex-row sm:items-center sm:justify-between"
                         href={githubUserData.html_url}
                         target="_blank"
                         rel="noreferrer"
@@ -135,6 +135,9 @@ function Homepage() {
                       <div className="md:mt-auto">
                         <ContributionGraph
                           contributions={githubUserData.contributions}
+                          isUnavailable={
+                            githubUserData.contributionsUnavailable
+                          }
                         />
                       </div>
                     </div>
@@ -145,7 +148,7 @@ function Homepage() {
                           Recent commits
                         </h4>
                         <a
-                          className="inline-flex rounded-lg p-2 text-slate-400 transition hover:bg-white/10 hover:text-slate-50"
+                          className="inline-flex rounded-lg p-2 text-slate-400 transition hover:bg-white/10 hover:text-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/70"
                           href="https://github.com/search?q=author%3Aiankwiatko&type=commits"
                           target="_blank"
                           rel="noreferrer"
@@ -160,7 +163,7 @@ function Homepage() {
                           {githubUserData.recentCommits.map((commit) => (
                             <a
                               key={commit.sha}
-                              className="flex min-w-0 flex-col gap-0.5 rounded-lg border border-transparent bg-white/5 px-3 py-2 text-left transition duration-200 hover:-translate-y-0.5 hover:border-cyan-300/20 hover:bg-white/10 hover:shadow-[0_8px_18px_rgba(2,6,23,0.2)]"
+                              className="flex min-w-0 flex-col gap-0.5 rounded-lg border border-transparent bg-white/5 px-3 py-2 text-left transition duration-200 hover:-translate-y-0.5 hover:border-cyan-300/20 hover:bg-white/10 hover:shadow-[0_8px_18px_rgba(2,6,23,0.2)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/70"
                               href={commit.url}
                               target="_blank"
                               rel="noreferrer"
@@ -190,7 +193,7 @@ function Homepage() {
                   directly.
                 </p>
                 <a
-                  className="inline-flex rounded-full bg-blue-600 px-4 py-3 font-semibold text-slate-50 transition duration-200 hover:-translate-y-0.5"
+                  className="inline-flex rounded-full bg-blue-600 px-4 py-3 font-semibold text-slate-50 transition duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/70"
                   href="https://github.com/iankwiatko"
                   target="_blank"
                   rel="noreferrer"

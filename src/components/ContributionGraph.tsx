@@ -2,6 +2,7 @@ import type { GithubContributionData } from "../types/githubContributionData.ts"
 
 type ContributionGraphProps = {
   contributions: GithubContributionData[];
+  isUnavailable?: boolean;
 };
 
 const WEEKS_TO_SHOW = 13;
@@ -14,7 +15,10 @@ const LEVEL_CLASSES = [
   "bg-[#39d353]",
 ];
 
-function ContributionGraph({ contributions }: ContributionGraphProps) {
+function ContributionGraph({
+  contributions,
+  isUnavailable = false,
+}: ContributionGraphProps) {
   const recentContributions = [...contributions]
     .sort((firstDay, secondDay) => firstDay.date.localeCompare(secondDay.date))
     .slice(-(WEEKS_TO_SHOW * DAYS_PER_WEEK));
@@ -30,19 +34,22 @@ function ContributionGraph({ contributions }: ContributionGraphProps) {
   );
 
   return (
-    <div
-      className="w-full shrink-0 rounded-xl border border-white/10 bg-white/5 p-2"
-      aria-label={`GitHub contribution activity: ${totalContributions} contributions in the past three months`}
-    >
+    <div className="w-full shrink-0 rounded-xl border border-white/10 bg-white/5 p-2">
       <div className="mb-1.5 flex items-center justify-between gap-2">
         <span className="text-[0.6rem] font-medium uppercase tracking-wide text-slate-400">
           Contributions
         </span>
         <span className="text-xs font-semibold text-slate-200">
-          {totalContributions}
+          {isUnavailable ? "Unavailable" : totalContributions}
         </span>
       </div>
       <div
+        role="img"
+        aria-label={
+          isUnavailable
+            ? "GitHub contribution activity is unavailable"
+            : `GitHub contribution activity: ${totalContributions} contributions in the past three months`
+        }
         className="grid grid-cols-[repeat(13,minmax(0,1fr))] grid-flow-col grid-rows-7 gap-0.5"
         aria-hidden="true"
       >

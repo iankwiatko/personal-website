@@ -38,18 +38,31 @@ function Homepage() {
               computer related!
             </p>
 
-            <div className="mt-6 flex flex-wrap gap-3">
+            <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-base font-medium text-slate-400">
               <a
-                className="inline-flex rounded-full bg-gradient-to-br from-slate-950 to-blue-600 px-4 py-3 font-semibold text-slate-50 shadow-[0_12px_24px_rgba(37,99,235,0.2)] transition duration-200 hover:-translate-y-0.5"
-                href="#about"
+                className="inline-flex items-center gap-2 transition-colors hover:text-slate-50"
+                href="mailto:iankwiatko@gmail.com"
               >
-                Explore my work
+                <Mail size={18} />
+                Email
               </a>
               <a
-                className="inline-flex rounded-full border border-white/10 bg-slate-900/70 px-4 py-3 font-semibold text-slate-50 transition duration-200 hover:-translate-y-0.5"
-                href="#contact"
+                className="inline-flex items-center gap-1 transition-colors hover:text-slate-50"
+                href="https://www.linkedin.com/in/iankwiatko"
+                target="_blank"
+                rel="noreferrer"
               >
-                Get in touch
+                <span className="text-base font-bold leading-none">in</span>
+                LinkedIn
+              </a>
+              <a
+                className="inline-flex items-center gap-2 transition-colors hover:text-slate-50"
+                href="https://github.com/iankwiatko"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FolderGit2 size={18} />
+                GitHub
               </a>
             </div>
           </div>
@@ -190,69 +203,6 @@ function Homepage() {
           {projects.map((project) => (
             <ProjectCard key={project.title} project={project} />
           ))}
-        </article>
-      </section>
-
-      <section className={sectionClass} id="contact">
-        <article className={`${sectionCardClass} flex flex-col gap-4`}>
-          <div className="flex flex-col gap-1">
-            <h2 className="text-xl font-semibold text-slate-50">Contact</h2>
-            <p className="text-[0.95rem] text-slate-300">
-              Feel free to reach out to me via email or connect with me on
-              LinkedIn or GitHub.
-            </p>
-          </div>
-
-          <div className="grid gap-3 md:grid-cols-3">
-            <a
-              className="flex items-center gap-3 rounded-[1rem] border border-white/10 bg-slate-800/70 p-4 text-slate-100 no-underline transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_24px_rgba(2,6,23,0.22)]"
-              href="mailto:iankwiatko@gmail.com"
-            >
-              <span className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-teal-600 to-blue-600 font-semibold text-white">
-                <Mail size={20} className="mt-0.5" />
-              </span>
-              <div className="flex flex-col gap-1">
-                <strong className="text-base">Email</strong>
-                <span className="text-sm text-slate-400">
-                  iankwiatko@gmail.com
-                </span>
-              </div>
-            </a>
-
-            <a
-              className="flex items-center gap-3 rounded-[1rem] border border-white/10 bg-slate-800/70 p-4 text-slate-100 no-underline transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_24px_rgba(2,6,23,0.22)]"
-              href="https://www.linkedin.com/in/iankwiatko"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <span className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-teal-600 to-blue-600 font-semibold text-white text-xl">
-                in
-              </span>
-              <div className="flex flex-col gap-1">
-                <strong className="text-base">LinkedIn</strong>
-                <span className="text-sm text-slate-400">Connect with me</span>
-              </div>
-            </a>
-
-            <a
-              className="flex items-center gap-3 rounded-[1rem] border border-white/10 bg-slate-800/70 p-4 text-slate-100 no-underline transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_24px_rgba(2,6,23,0.22)]"
-              href={
-                githubUserData
-                  ? githubUserData.html_url
-                  : "https://github.com/iankwiatko"
-              }
-              target="_blank"
-              rel="noreferrer"
-            >
-              <span className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-teal-600 to-blue-600 font-semibold text-white">
-                <FolderGit2 size={20} className="mt-0.5" />
-              </span>
-              <div className="flex flex-col gap-1">
-                <strong className="text-base">GitHub</strong>
-                <span className="text-sm text-slate-400">See my projects</span>
-              </div>
-            </a>
-          </div>
         </article>
       </section>
     </main>

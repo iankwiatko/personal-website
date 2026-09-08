@@ -40,6 +40,11 @@ export async function fetchGitHubCommits(): Promise<githubCommitData[]> {
       (event) =>
         event.type === "PushEvent" && event.repo?.name && event.payload?.head,
     )
+    .sort(
+      (firstEvent, secondEvent) =>
+        new Date(secondEvent.created_at).getTime() -
+        new Date(firstEvent.created_at).getTime(),
+    )
     .slice(0, 3);
 
   const commits = await Promise.all(

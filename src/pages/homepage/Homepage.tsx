@@ -1,5 +1,6 @@
 import { FolderGit2, Mail } from "lucide-react";
 
+import { ContributionGraph } from "../../components/ContributionGraph";
 import { ProjectCard } from "../../components/ProjectCard";
 import { projects } from "../../data/projects";
 import { useGithubUser } from "./useHomepage";
@@ -64,71 +65,89 @@ function Homepage() {
               </div>
             ) : githubUserData ? (
               <div className="block text-inherit no-underline">
-                <div className="flex flex-col gap-3 rounded-[1.125rem] border border-white/10 bg-gradient-to-br from-slate-950 to-slate-800 p-4 shadow-[0_12px_30px_rgba(2,6,23,0.24)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_18px_36px_rgba(2,6,23,0.24)]">
-                  <div className="grid gap-6 md:grid-cols-2 md:items-start">
-                    <div className="flex flex-col gap-3">
+                <div className="flex flex-col gap-3 rounded-[1.125rem] border border-white/10 bg-gradient-to-br from-slate-950 to-slate-800 p-4 shadow-[0_12px_30px_rgba(2,6,23,0.24)]">
+                  <div className="grid gap-6 md:grid-cols-2 md:items-stretch">
+                    <div className="flex flex-col gap-3 md:pt-3">
                       <a
-                        className="flex items-center gap-3 text-inherit no-underline"
+                        className="group flex flex-col gap-3 rounded-xl p-2 -m-2 text-inherit no-underline transition-colors duration-200 hover:bg-white/5 sm:flex-row sm:items-center sm:justify-between"
                         href={githubUserData.html_url}
                         target="_blank"
                         rel="noreferrer"
+                        aria-label="Visit Ian's GitHub profile"
                       >
-                        <img
-                          className="h-14 w-14 rounded-full border border-white/10"
-                          src={githubUserData.avatar_url}
-                          alt={`${githubUserData.login} avatar`}
-                        />
-                        <div>
-                          <h3 className="text-base font-semibold text-slate-50">
-                            {githubUserData.name ?? githubUserData.login}
-                          </h3>
-                          <p className="text-sm text-slate-300">
-                            @{githubUserData.login}
-                          </p>
+                        <div className="flex min-w-0 items-center gap-3">
+                          <img
+                            className="h-14 w-14 rounded-full border border-white/10"
+                            src={githubUserData.avatar_url}
+                            alt={`${githubUserData.login} avatar`}
+                          />
+                          <div className="min-w-0 space-y-1">
+                            <h3 className="truncate text-base font-semibold leading-6 text-slate-50">
+                              {githubUserData.name ?? githubUserData.login}
+                            </h3>
+                            <p className="truncate text-sm leading-6 text-slate-300">
+                              @{githubUserData.login}
+                            </p>
+                          </div>
+                        </div>
+
+                        <div className="grid min-w-0 grid-cols-3 divide-x divide-white/10 rounded-xl border border-white/10 bg-white/5 p-1 transition-colors duration-200 group-hover:border-white/20 sm:ml-3 sm:flex-1">
+                          <div className="flex flex-col items-center gap-0.5 px-1.5 py-3">
+                            <strong className="text-sm font-semibold text-slate-50">
+                              {githubUserData.public_repos}
+                            </strong>
+                            <span className="text-[0.6rem] font-medium uppercase tracking-wide text-slate-400">
+                              Repos
+                            </span>
+                          </div>
+                          <div className="flex flex-col items-center gap-0.5 px-1.5 py-3">
+                            <strong className="text-sm font-semibold text-slate-50">
+                              {githubUserData.followers}
+                            </strong>
+                            <span className="text-[0.6rem] font-medium uppercase tracking-wide text-slate-400">
+                              Followers
+                            </span>
+                          </div>
+                          <div className="flex flex-col items-center gap-0.5 px-1.5 py-3">
+                            <strong className="text-sm font-semibold text-slate-50">
+                              {githubUserData.following}
+                            </strong>
+                            <span className="text-[0.6rem] font-medium uppercase tracking-wide text-slate-400">
+                              Following
+                            </span>
+                          </div>
                         </div>
                       </a>
 
-                      <p className="text-sm leading-6 text-slate-300">
-                        {githubUserData.bio ??
-                          "Building thoughtful web experiences."}
-                      </p>
-
-                      <div className="grid grid-cols-3 gap-2">
-                        <div className="flex flex-col items-center gap-1 rounded-xl bg-white/5 p-3">
-                          <strong className="text-base text-slate-50">
-                            {githubUserData.public_repos}
-                          </strong>
-                          <span className="text-xs text-slate-400">Repos</span>
-                        </div>
-                        <div className="flex flex-col items-center gap-1 rounded-xl bg-white/5 p-3">
-                          <strong className="text-base text-slate-50">
-                            {githubUserData.followers}
-                          </strong>
-                          <span className="text-xs text-slate-400">
-                            Followers
-                          </span>
-                        </div>
-                        <div className="flex flex-col items-center gap-1 rounded-xl bg-white/5 p-3">
-                          <strong className="text-base text-slate-50">
-                            {githubUserData.following}
-                          </strong>
-                          <span className="text-xs text-slate-400">
-                            Following
-                          </span>
-                        </div>
+                      <div className="md:mt-auto">
+                        <ContributionGraph
+                          contributions={githubUserData.contributions}
+                        />
                       </div>
                     </div>
 
                     <div className="flex flex-col gap-2 border-t border-white/10 pt-3 md:border-l md:border-t-0 md:pl-6 md:pt-0">
-                      <h4 className="text-sm font-semibold text-slate-200">
-                        Recent commits
-                      </h4>
+                      <div className="flex items-center justify-between gap-3">
+                        <h4 className="text-sm font-semibold text-slate-200">
+                          Recent commits
+                        </h4>
+                        <a
+                          className="inline-flex rounded-lg p-2 text-slate-400 transition hover:bg-white/10 hover:text-slate-50"
+                          href="https://github.com/search?q=author%3Aiankwiatko&type=commits"
+                          target="_blank"
+                          rel="noreferrer"
+                          aria-label="View Ian's GitHub commit history"
+                          title="View commit history"
+                        >
+                          <FolderGit2 size={18} />
+                        </a>
+                      </div>
                       {githubUserData.recentCommits.length > 0 ? (
                         <div className="flex flex-col gap-2">
                           {githubUserData.recentCommits.map((commit) => (
                             <a
                               key={commit.sha}
-                              className="flex min-w-0 flex-col gap-0.5 rounded-lg bg-white/5 px-3 py-2 text-left transition hover:bg-white/10"
+                              className="flex min-w-0 flex-col gap-0.5 rounded-lg border border-transparent bg-white/5 px-3 py-2 text-left transition duration-200 hover:-translate-y-0.5 hover:border-cyan-300/20 hover:bg-white/10 hover:shadow-[0_8px_18px_rgba(2,6,23,0.2)]"
                               href={commit.url}
                               target="_blank"
                               rel="noreferrer"

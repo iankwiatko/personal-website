@@ -1,13 +1,12 @@
 import type { githubUserData } from "../types/githubUserData.ts";
 
+const GITHUB_USERNAME = "iankwiatko";
+const HEADERS = { Accept: "application/vnd.github+json" };
+
 export async function fetchGitHubUser() {
   const githubUserResponse = await fetch(
-    "https://api.github.com/users/iankwiatko",
-    {
-      headers: {
-        Accept: "application/vnd.github+json",
-      },
-    },
+    `https://api.github.com/users/${GITHUB_USERNAME}`,
+    { headers: HEADERS },
   );
 
   if (!githubUserResponse.ok) {

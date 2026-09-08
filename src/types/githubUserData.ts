@@ -1,3 +1,5 @@
+import type { githubCommitData } from "./githubCommitData.ts";
+
 export type githubUserData = {
   login: string;
   name: string | null;
@@ -7,4 +9,5 @@ export type githubUserData = {
   public_repos: number;
   followers: number;
   following: number;
+  recentCommits: githubCommitData[];
 };

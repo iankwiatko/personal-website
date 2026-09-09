@@ -13,7 +13,7 @@ function Homepage() {
   const introSectionClass =
     "relative mx-auto w-full max-w-5xl pt-4 scroll-mt-6";
   const sectionCardClass =
-    "animate-[fadeUp_700ms_ease_both] rounded-[1.5rem] border border-white/10 bg-slate-900/90 p-8 shadow-[0_18px_40px_rgba(2,6,23,0.3)] backdrop-blur-sm";
+    "animate-[fadeUp_700ms_ease_both] rounded-[1.5rem] border border-white/10 bg-slate-900/90 p-4 shadow-[0_18px_40px_rgba(2,6,23,0.3)] backdrop-blur-sm sm:p-8";
 
   return (
     <main className="relative flex min-h-screen flex-col gap-5 px-6 pb-16 pt-12 text-slate-100 lg:px-8">
@@ -48,7 +48,7 @@ function Homepage() {
               </a>
               <a
                 className="inline-flex items-center gap-1 transition-colors hover:text-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/70"
-                href="https://www.linkedin.com/in/iankwiatko"
+                href="https://www.linkedin.com/in/iankwaitko/"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -70,17 +70,17 @@ function Homepage() {
       </section>
 
       <section className={sectionClass} id="about">
-        <article className={sectionCardClass}>
+        <article className={`${sectionCardClass} min-w-0`}>
           <div className="grid gap-4">
             {isLoading ? (
               <div className="flex min-h-[13.75rem] items-center justify-center rounded-[1.125rem] border border-white/10 bg-gradient-to-br from-slate-950 to-slate-800 p-4 text-center text-slate-300 shadow-[0_12px_30px_rgba(2,6,23,0.24)]">
                 Loading GitHub data...
               </div>
             ) : githubUserData ? (
-              <div className="block text-inherit no-underline">
-                <div className="flex flex-col gap-3 rounded-[1.125rem] border border-white/10 bg-gradient-to-br from-slate-950 to-slate-800 p-4 shadow-[0_12px_30px_rgba(2,6,23,0.24)]">
+              <div className="block min-w-0 text-inherit no-underline">
+                <div className="flex min-w-0 flex-col gap-3 rounded-[1.125rem] border border-white/10 bg-gradient-to-br from-slate-950 to-slate-800 p-3 shadow-[0_12px_30px_rgba(2,6,23,0.24)] sm:p-4">
                   <div className="grid gap-6 md:grid-cols-2 md:items-stretch">
-                    <div className="flex flex-col gap-3 md:pt-3">
+                    <div className="flex min-w-0 flex-col gap-3 md:pt-3">
                       <a
                         className="group -m-2 flex flex-col gap-3 rounded-xl p-2 text-inherit no-underline transition-colors duration-200 hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/70 sm:flex-row sm:items-center sm:justify-between"
                         href={githubUserData.html_url}
@@ -104,7 +104,7 @@ function Homepage() {
                           </div>
                         </div>
 
-                        <div className="grid min-w-0 grid-cols-3 divide-x divide-white/10 rounded-xl border border-white/10 bg-white/5 p-1 transition-colors duration-200 group-hover:border-white/20 sm:ml-3 sm:flex-1">
+                        <div className="grid w-full min-w-0 grid-cols-3 divide-x divide-white/10 rounded-xl border border-white/10 bg-white/5 p-1 transition-colors duration-200 group-hover:border-white/20 sm:ml-3 sm:w-auto sm:flex-1">
                           <div className="flex flex-col items-center gap-0.5 px-1.5 py-3">
                             <strong className="text-sm font-semibold text-slate-50">
                               {githubUserData.public_repos}
@@ -142,7 +142,7 @@ function Homepage() {
                       </div>
                     </div>
 
-                    <div className="flex flex-col gap-2 border-t border-white/10 pt-3 md:border-l md:border-t-0 md:pl-6 md:pt-0">
+                    <div className="flex min-w-0 flex-col gap-2 border-t border-white/10 pt-3 md:border-l md:border-t-0 md:pl-6 md:pt-0">
                       <div className="flex items-center justify-between gap-3">
                         <h4 className="text-sm font-semibold text-slate-200">
                           Recent commits

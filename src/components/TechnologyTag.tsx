@@ -9,7 +9,7 @@ export function TechnologyTag({ name }: TagProps) {
 
   return (
     <span
-      className={`inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full text-xs font-semibold text-white ${tagData.colorClass}`}
+      className={`inline-flex items-center gap-2 rounded-full px-2.5 py-0.5 text-xs font-semibold text-white ${tagData.colorClass}`}
     >
       {tagData.label}
     </span>

@@ -7,18 +7,18 @@ import { useGithubUser } from "./useHomepage";
 
 function Homepage() {
   const { githubUserData, isLoading } = useGithubUser();
-
-  const sectionClass =
-    "relative mx-auto w-full max-w-5xl pt-4 scroll-mt-6 before:absolute before:top-0 before:left-1/2 before:h-px before:w-[min(68%,680px)] before:-translate-x-1/2 before:bg-gradient-to-r before:from-transparent before:via-slate-400/25 before:to-transparent before:content-['']";
-  const introSectionClass =
-    "relative mx-auto w-full max-w-5xl pt-4 scroll-mt-6";
-  const sectionCardClass =
-    "animate-[fadeUp_700ms_ease_both] rounded-[1.5rem] border border-white/10 bg-slate-900/90 p-4 shadow-[0_18px_40px_rgba(2,6,23,0.3)] backdrop-blur-sm sm:p-8";
+  const stats = githubUserData
+    ? [
+        ["Repos", githubUserData.public_repos],
+        ["Followers", githubUserData.followers],
+        ["Following", githubUserData.following],
+      ]
+    : [];
 
   return (
     <main className="relative flex min-h-screen flex-col gap-5 px-6 pb-16 pt-12 text-slate-100 lg:px-8">
-      <section className={introSectionClass} id="intro">
-        <article className={`${sectionCardClass} overflow-hidden`}>
+      <section className="page-section" id="intro">
+        <article className="section-card overflow-hidden">
           <div className="relative z-10">
             <h1 className="text-[clamp(2.4rem,4.4vw,3.8rem)] font-semibold">
               Ian Kwiatkowski
@@ -40,14 +40,14 @@ function Homepage() {
 
             <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-base font-medium text-slate-400">
               <a
-                className="inline-flex items-center gap-2 transition-colors hover:text-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/70"
+                className="focus-ring inline-flex items-center gap-2 transition-colors hover:text-slate-50"
                 href="mailto:iankwiatko@gmail.com"
               >
                 <Mail size={18} />
                 Email
               </a>
               <a
-                className="inline-flex items-center gap-1 transition-colors hover:text-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/70"
+                className="focus-ring inline-flex items-center gap-1 transition-colors hover:text-slate-50"
                 href="https://www.linkedin.com/in/iankwaitko/"
                 target="_blank"
                 rel="noreferrer"
@@ -56,7 +56,7 @@ function Homepage() {
                 LinkedIn
               </a>
               <a
-                className="inline-flex items-center gap-2 transition-colors hover:text-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/70"
+                className="focus-ring inline-flex items-center gap-2 transition-colors hover:text-slate-50"
                 href="https://github.com/iankwiatko"
                 target="_blank"
                 rel="noreferrer"
@@ -69,20 +69,18 @@ function Homepage() {
         </article>
       </section>
 
-      <section className={sectionClass} id="about">
-        <article className={`${sectionCardClass} min-w-0`}>
+      <section className="page-section page-section--divided" id="about">
+        <article className="section-card min-w-0">
           <div className="grid gap-4">
             {isLoading ? (
-              <div className="flex min-h-[13.75rem] items-center justify-center rounded-[1.125rem] border border-white/10 bg-gradient-to-br from-slate-950 to-slate-800 p-4 text-center text-slate-300 shadow-[0_12px_30px_rgba(2,6,23,0.24)]">
-                Loading GitHub data...
-              </div>
+              <div className="github-status">Loading GitHub data...</div>
             ) : githubUserData ? (
-              <div className="block min-w-0 text-inherit no-underline">
-                <div className="flex min-w-0 flex-col gap-3 rounded-[1.125rem] border border-white/10 bg-gradient-to-br from-slate-950 to-slate-800 p-3 shadow-[0_12px_30px_rgba(2,6,23,0.24)] sm:p-4">
+              <div className="min-w-0">
+                <div className="github-surface flex min-w-0 flex-col gap-3 p-3 sm:p-4">
                   <div className="grid gap-6 md:grid-cols-2 md:items-stretch">
                     <div className="flex min-w-0 flex-col gap-3 md:pt-3">
                       <a
-                        className="group -m-2 flex flex-col gap-3 rounded-xl p-2 text-inherit no-underline transition-colors duration-200 hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/70 sm:flex-row sm:items-center sm:justify-between"
+                        className="focus-ring group -m-2 flex flex-col gap-3 rounded-xl p-2 text-inherit no-underline transition-colors duration-200 hover:bg-white/5 sm:flex-row sm:items-center sm:justify-between"
                         href={githubUserData.html_url}
                         target="_blank"
                         rel="noreferrer"
@@ -105,30 +103,19 @@ function Homepage() {
                         </div>
 
                         <div className="grid w-full min-w-0 grid-cols-3 divide-x divide-white/10 rounded-xl border border-white/10 bg-white/5 p-1 transition-colors duration-200 group-hover:border-white/20 sm:ml-3 sm:w-auto sm:flex-1">
-                          <div className="flex flex-col items-center gap-0.5 px-1.5 py-3">
-                            <strong className="text-sm font-semibold text-slate-50">
-                              {githubUserData.public_repos}
-                            </strong>
-                            <span className="text-[0.6rem] font-medium uppercase tracking-wide text-slate-400">
-                              Repos
-                            </span>
-                          </div>
-                          <div className="flex flex-col items-center gap-0.5 px-1.5 py-3">
-                            <strong className="text-sm font-semibold text-slate-50">
-                              {githubUserData.followers}
-                            </strong>
-                            <span className="text-[0.6rem] font-medium uppercase tracking-wide text-slate-400">
-                              Followers
-                            </span>
-                          </div>
-                          <div className="flex flex-col items-center gap-0.5 px-1.5 py-3">
-                            <strong className="text-sm font-semibold text-slate-50">
-                              {githubUserData.following}
-                            </strong>
-                            <span className="text-[0.6rem] font-medium uppercase tracking-wide text-slate-400">
-                              Following
-                            </span>
-                          </div>
+                          {stats.map(([label, value]) => (
+                            <div
+                              className="flex flex-col items-center gap-0.5 px-1.5 py-3"
+                              key={label}
+                            >
+                              <strong className="text-sm font-semibold text-slate-50">
+                                {value}
+                              </strong>
+                              <span className="text-[0.6rem] font-medium uppercase tracking-wide text-slate-400">
+                                {label}
+                              </span>
+                            </div>
+                          ))}
                         </div>
                       </a>
 
@@ -148,7 +135,7 @@ function Homepage() {
                           Recent commits
                         </h4>
                         <a
-                          className="inline-flex rounded-lg p-2 text-slate-400 transition hover:bg-white/10 hover:text-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/70"
+                          className="focus-ring inline-flex rounded-lg p-2 text-slate-400 transition hover:bg-white/10 hover:text-slate-50"
                           href="https://github.com/search?q=author%3Aiankwiatko&type=commits"
                           target="_blank"
                           rel="noreferrer"
@@ -163,7 +150,7 @@ function Homepage() {
                           {githubUserData.recentCommits.map((commit) => (
                             <a
                               key={commit.sha}
-                              className="flex min-w-0 flex-col gap-0.5 rounded-lg border border-transparent bg-white/5 px-3 py-2 text-left transition duration-200 hover:-translate-y-0.5 hover:border-cyan-300/20 hover:bg-white/10 hover:shadow-[0_8px_18px_rgba(2,6,23,0.2)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/70"
+                              className="focus-ring flex min-w-0 flex-col gap-0.5 rounded-lg border border-transparent bg-white/5 px-3 py-2 text-left transition duration-200 hover:-translate-y-0.5 hover:border-cyan-300/20 hover:bg-white/10 hover:shadow-[0_8px_18px_rgba(2,6,23,0.2)]"
                               href={commit.url}
                               target="_blank"
                               rel="noreferrer"
@@ -187,13 +174,13 @@ function Homepage() {
                 </div>
               </div>
             ) : (
-              <div className="flex min-h-[13.75rem] flex-col items-center justify-center gap-4 rounded-[1.125rem] border border-white/10 bg-gradient-to-br from-slate-950 to-slate-800 p-4 text-center text-slate-300 shadow-[0_12px_30px_rgba(2,6,23,0.24)]">
+              <div className="github-status flex-col gap-4">
                 <p>
                   GitHub stats are temporarily unavailable. Visit my profile
                   directly.
                 </p>
                 <a
-                  className="inline-flex rounded-full bg-blue-600 px-4 py-3 font-semibold text-slate-50 transition duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/70"
+                  className="focus-ring inline-flex rounded-full bg-blue-600 px-4 py-3 font-semibold text-slate-50 transition duration-200 hover:-translate-y-0.5"
                   href="https://github.com/iankwiatko"
                   target="_blank"
                   rel="noreferrer"

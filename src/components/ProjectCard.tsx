@@ -17,12 +17,12 @@ export function ProjectCard({ project }: ProjectCardProps) {
             {project.links.map((link) => (
               <a
                 key={link.href}
-                className={`inline-flex items-center gap-1 rounded-full px-3 py-1 text-sm font-semibold text-slate-300 no-underline transition duration-200 ${
+                className={`project-link ${
                   link.icon === "code"
-                    ? "bg-slate-700/70 hover:-translate-y-0.5 hover:bg-slate-600 hover:shadow-[0_8px_20px_rgba(2,6,23,0.2)]"
+                    ? "project-link--code"
                     : link.icon === "indev"
-                      ? "bg-violet-500/15 text-violet-200"
-                      : "bg-sky-400/10 hover:-translate-y-0.5 hover:bg-sky-400/20 hover:shadow-[0_8px_20px_rgba(2,6,23,0.2)]"
+                      ? "project-link--indev"
+                      : "project-link--live"
                 }`}
                 href={link.href}
                 target="_blank"

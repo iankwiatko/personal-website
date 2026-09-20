@@ -66,4 +66,17 @@ export const projects: Project[] = [
       },
     ],
   },
+  {
+    title: "Mobility.AI",
+    description:
+      "Mobility AI was built as a proof-of-concept project for HACK/IO 2022. Our goal was to build an alert system for micromobility users using artificial intelligence to recognize people/objects from a given input feed and avoid them. I was responsible for the computer vision recognition portion of the project, which is what this project is.",
+    tech: ["python"],
+    links: [
+      {
+        label: "source code",
+        href: "https://github.com/iankwiatko/Mobility.AI",
+        icon: "code",
+      },
+    ],
+  },
 ];

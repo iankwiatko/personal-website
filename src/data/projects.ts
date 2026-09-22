@@ -2,6 +2,7 @@ import type { TagName } from "./tags";
 
 export type Project = {
   title: string;
+  summary: string;
   description: string;
   tech: TagName[];
   links: Array<{
@@ -14,6 +15,8 @@ export type Project = {
 export const projects: Project[] = [
   {
     title: "Sleeperdex",
+    summary:
+      "Helping card collectors spot hidden value in bulk trading card sets.",
     description:
       "Sleeperdex is a web application designed to help collectors find value in their bulk trading cards. It allows users to organize cards by set and set a minimum price in order to filter out cards that may have hidden value. This project was built using React and hosted on Vercel, like many of my other projects. The goal of this project was to gain experience using public APIs while also gaining exposure to the challenges involved with handling large amounts of data efficiently. I explored various methods for optimizing performance, including memoization, query batching, caching, and best practices such as ensuring runtime type safety, virtualization of large data such as images, and efficient state management using tanstack/react-query.",
     tech: ["react", "vercel", "typescript"],
@@ -37,6 +40,7 @@ export const projects: Project[] = [
   },
   {
     title: "RidePare",
+    summary: "A rideshare fare and journey comparison tool built in 24 hours.",
     description:
       "RidePare is an attempt to improve mobility efficiency, accessibility and sustainability in our community by providing fare and journey information for various rideshare programs such as Uber, Lyft, Lime and CitiBikes. This project was made in 24 hour for the 2024 Hack OH/IO Event, and was built using React for the frontend and Express for the backend, incorporating some Google and OpenSource APIs for address, distance, routing and map generation.",
     tech: ["react", "vercel", "express"],
@@ -55,6 +59,7 @@ export const projects: Project[] = [
   },
   {
     title: "Schedule Master",
+    summary: "An interactive task scheduler created for mobile devices.",
     description:
       "Schedule Master is a interactive schedule made for my college senior year mobile applications class at OSU. It allows users to create an account and add various tasks with tags, priority, a description and various other attributes that can be manipulated after the task is created. This project was built with Kotlin for the user interface, Firebase for the backend database and authentication, and was tested using automated unit tests and UI tests built with JUnit.",
     tech: ["kotlin", "firebase", "junit"],
@@ -68,6 +73,7 @@ export const projects: Project[] = [
   },
   {
     title: "Mobility.AI",
+    summary: "A computer-vision alert system for micromobility safety.",
     description:
       "Mobility AI was built as a proof-of-concept project for HACK/IO 2022. Our goal was to build an alert system for micromobility users using artificial intelligence to recognize people/objects from a given input feed and avoid them. I was responsible for the computer vision recognition portion of the project, which is what this project is.",
     tech: ["python"],

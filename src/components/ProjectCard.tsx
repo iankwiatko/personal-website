@@ -13,61 +13,71 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
   return (
     <div
-      className={`flex flex-col gap-1 px-5 py-4 text-slate-100 transition-colors duration-200 ${
+      className={`flex flex-col gap-1 p-3 text-slate-100 transition-colors duration-200 sm:p-4 ${
         isExpanded ? "bg-white/5" : "hover:bg-white/5"
       }`}
     >
-      <div className="flex flex-wrap items-start gap-3">
+      <div className="flex flex-wrap items-center gap-3">
         <button
           type="button"
-          className="focus-ring group -m-2 flex items-center gap-2 rounded-lg p-2 text-left transition-colors duration-200 hover:bg-white/5"
+          className="focus-ring group -m-2 flex shrink-0 items-center gap-2 rounded-lg p-2 text-left transition-colors duration-200 hover:bg-white/5"
           onClick={() => setIsExpanded((prev) => !prev)}
           aria-expanded={isExpanded}
         >
           <ChevronDown
-            size={18}
-            className={`mt-0.5 shrink-0 text-slate-400 transition-transform duration-200 group-hover:text-slate-200 ${
+            size={16}
+            className={`shrink-0 text-slate-400 transition-transform duration-200 group-hover:text-slate-200 ${
               isExpanded ? "rotate-180" : ""
             }`}
           />
-          <h3 className="text-lg font-semibold">{project.title}</h3>
+          <h3 className="text-base font-semibold whitespace-nowrap text-slate-50">
+            {project.title}
+          </h3>
         </button>
-        <div className="ml-auto flex flex-wrap gap-2">
-          {project.links.map((link) => (
-            <a
-              key={link.href}
-              className={`project-link ${
-                link.icon === "code"
-                  ? "project-link--code"
-                  : link.icon === "indev"
-                    ? "project-link--indev"
-                    : "project-link--live"
-              }`}
-              href={link.href}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <span>{link.label}</span>
-              {link.icon === "code" ? (
-                <Code size={14} className="mt-0.5" />
-              ) : link.icon === "indev" ? (
-                <Bot size={16} className="mt-0.5" />
-              ) : (
-                <Link size={14} className="mt-0.5" />
-              )}
-            </a>
-          ))}
+
+        <p
+          className={`min-w-0 flex-1 truncate text-sm text-slate-400 transition-all duration-300 ease-in-out ${
+            isExpanded ? "translate-x-2 opacity-0" : "translate-x-0 opacity-100"
+          }`}
+        >
+          {project.summary}
+        </p>
+
+        <div className="ml-auto flex flex-wrap items-center gap-1">
+          {project.links.map((link) =>
+            link.icon === "indev" ? (
+              <span
+                key={link.label}
+                className="inline-flex items-center gap-1.5 rounded-full border border-violet-400/20 bg-violet-500/10 px-2.5 py-1 text-xs font-medium text-violet-200"
+              >
+                <Bot size={14} />
+                {link.label}
+              </span>
+            ) : (
+              <a
+                key={link.href}
+                className="focus-ring inline-flex rounded-lg p-2 text-slate-400 transition hover:bg-white/10 hover:text-slate-50"
+                href={link.href}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={link.label}
+                title={link.label}
+              >
+                {link.icon === "code" ? <Code size={16} /> : <Link size={16} />}
+              </a>
+            ),
+          )}
         </div>
       </div>
 
       <div
         className={`grid transition-all duration-300 ease-in-out ${
           isExpanded
-            ? "grid-rows-[1fr] opacity-100"
-            : "grid-rows-[0fr] opacity-0"
+            ? "grid-rows-[1fr] opacity-100 translate-y-0"
+            : "grid-rows-[0fr] opacity-0 translate-y-1"
         }`}
       >
-        <div className="overflow-hidden">
+        <div className="overflow-hidden pl-6">
           <p className="pt-3 text-sm leading-7 text-slate-300">
             {project.description}
           </p>

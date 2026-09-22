@@ -190,7 +190,7 @@ function Homepage() {
               </div>
             )}
           </div>
-          <div className="mt-5 divide-y divide-white/10 overflow-hidden rounded-[1.25rem] border border-white/10 bg-slate-800/70">
+          <div className="github-surface mt-5 divide-y divide-white/10 overflow-hidden">
             {projects.map((project) => (
               <ProjectCard key={project.title} project={project} />
             ))}

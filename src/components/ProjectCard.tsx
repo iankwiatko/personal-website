@@ -2,15 +2,18 @@ import { Bot, ChevronDown, Code, Link } from "lucide-react";
 
 import type { Project } from "../data/projects";
 import { TechnologyTag } from "./TechnologyTag";
-import { useState } from "react";
 
 type ProjectCardProps = {
   project: Project;
+  isExpanded: boolean;
+  onToggle: () => void;
 };
 
-export function ProjectCard({ project }: ProjectCardProps) {
-  const [isExpanded, setIsExpanded] = useState(false);
-
+export function ProjectCard({
+  project,
+  isExpanded,
+  onToggle,
+}: ProjectCardProps) {
   return (
     <div
       className={`flex flex-col gap-1 p-3 text-slate-100 transition-colors duration-200 sm:p-4 ${
@@ -21,7 +24,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         <button
           type="button"
           className="focus-ring group -m-2 flex shrink-0 items-center gap-2 rounded-lg p-2 text-left transition-colors duration-200 hover:bg-white/5"
-          onClick={() => setIsExpanded((prev) => !prev)}
+          onClick={onToggle}
           aria-expanded={isExpanded}
         >
           <ChevronDown
@@ -30,33 +33,43 @@ export function ProjectCard({ project }: ProjectCardProps) {
               isExpanded ? "rotate-180" : ""
             }`}
           />
-          <h3 className="text-base font-semibold whitespace-nowrap text-slate-50">
+          <h3 className="text-base leading-6 font-semibold whitespace-nowrap text-slate-50">
             {project.title}
           </h3>
         </button>
 
         <p
-          className={`min-w-0 flex-1 truncate text-sm text-slate-400 transition-all duration-300 ease-in-out ${
+          className={`min-w-0 flex-1 truncate text-sm leading-6 text-slate-400 transition-all duration-300 ease-in-out ${
             isExpanded ? "translate-x-2 opacity-0" : "translate-x-0 opacity-100"
           }`}
         >
           {project.summary}
         </p>
 
-        <div className="ml-auto flex flex-wrap items-center gap-1">
+        <div className="ml-auto flex flex-wrap items-center gap-0.5">
           {project.links.map((link) =>
             link.icon === "indev" ? (
               <span
                 key={link.label}
-                className="inline-flex items-center gap-1.5 rounded-full border border-violet-400/20 bg-violet-500/10 px-2.5 py-1 text-xs font-medium text-violet-200"
+                className={`inline-flex h-8 min-w-8 shrink-0 items-center justify-center overflow-hidden rounded-full border border-violet-400/20 bg-violet-500/10 text-xs leading-none font-medium text-violet-200 transition-[gap,padding] duration-300 ease-in-out ${
+                  isExpanded ? "gap-1.5 px-3" : "gap-0 px-0"
+                }`}
               >
-                <Bot size={14} />
-                {link.label}
+                <Bot size={16} className="shrink-0" />
+                <span
+                  className={`grid overflow-hidden whitespace-nowrap transition-all duration-300 ease-in-out ${
+                    isExpanded
+                      ? "grid-cols-[1fr] opacity-100"
+                      : "grid-cols-[0fr] opacity-0"
+                  }`}
+                >
+                  <span className="overflow-hidden">{link.label}</span>
+                </span>
               </span>
             ) : (
               <a
                 key={link.href}
-                className="focus-ring inline-flex rounded-lg p-2 text-slate-400 transition hover:bg-white/10 hover:text-slate-50"
+                className="focus-ring inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-400 transition hover:bg-white/10 hover:text-slate-50"
                 href={link.href}
                 target="_blank"
                 rel="noreferrer"
@@ -82,7 +95,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             {project.description}
           </p>
 
-          <div className="mt-2 flex flex-wrap gap-2 pb-1">
+          <div className="mt-3 flex flex-wrap items-center gap-2 pb-1">
             {project.tech.map((tech) => (
               <TechnologyTag key={tech} name={tech} />
             ))}

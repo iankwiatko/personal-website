@@ -4,9 +4,11 @@ import { ContributionGraph } from "../../components/ContributionGraph";
 import { ProjectCard } from "../../components/ProjectCard";
 import { projects } from "../../data/projects";
 import { useGithubUser } from "./useHomepage";
+import { useState } from "react";
 
 function Homepage() {
   const { githubUserData, isLoading } = useGithubUser();
+  const [expandedProject, setExpandedProject] = useState<string | null>(null);
   const stats = githubUserData
     ? [
         ["Repos", githubUserData.public_repos],
@@ -192,7 +194,16 @@ function Homepage() {
           </div>
           <div className="github-surface mt-5 divide-y divide-white/10 overflow-hidden">
             {projects.map((project) => (
-              <ProjectCard key={project.title} project={project} />
+              <ProjectCard
+                key={project.title}
+                project={project}
+                isExpanded={expandedProject === project.title}
+                onToggle={() =>
+                  setExpandedProject((prev) =>
+                    prev === project.title ? null : project.title,
+                  )
+                }
+              />
             ))}
           </div>
         </article>

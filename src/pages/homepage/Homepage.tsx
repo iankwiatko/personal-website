@@ -190,9 +190,11 @@ function Homepage() {
               </div>
             )}
           </div>
-          {projects.map((project) => (
-            <ProjectCard key={project.title} project={project} />
-          ))}
+          <div className="mt-5 divide-y divide-white/10 overflow-hidden rounded-[1.25rem] border border-white/10 bg-slate-800/70">
+            {projects.map((project) => (
+              <ProjectCard key={project.title} project={project} />
+            ))}
+          </div>
         </article>
       </section>
     </main>

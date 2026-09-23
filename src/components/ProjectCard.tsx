@@ -23,7 +23,7 @@ export function ProjectCard({
       <div className="flex flex-wrap items-center gap-3">
         <button
           type="button"
-          className="focus-ring group -m-2 flex shrink-0 items-center gap-2 rounded-lg p-2 text-left transition-colors duration-200 hover:bg-white/5"
+          className="focus-ring group -m-2 flex min-w-0 flex-1 items-center gap-2 rounded-lg p-2 text-left transition-colors duration-200 hover:bg-white/5"
           onClick={onToggle}
           aria-expanded={isExpanded}
         >
@@ -33,25 +33,17 @@ export function ProjectCard({
               isExpanded ? "rotate-180" : ""
             }`}
           />
-          <h3 className="text-base leading-6 font-semibold whitespace-nowrap text-slate-50">
+          <h3 className="min-w-0 truncate text-base leading-6 font-semibold whitespace-nowrap text-slate-50">
             {project.title}
           </h3>
         </button>
 
-        <p
-          className={`min-w-0 flex-1 truncate text-sm leading-6 text-slate-400 transition-all duration-300 ease-in-out ${
-            isExpanded ? "translate-x-2 opacity-0" : "translate-x-0 opacity-100"
-          }`}
-        >
-          {project.summary}
-        </p>
-
-        <div className="ml-auto flex flex-wrap items-center gap-0.5">
+        <div className="ml-auto flex max-w-full shrink-0 flex-wrap items-center justify-end gap-0.5">
           {project.links.map((link) =>
             link.icon === "indev" ? (
               <span
                 key={link.label}
-                className={`inline-flex h-8 min-w-8 shrink-0 items-center justify-center overflow-hidden rounded-full border border-violet-400/20 bg-violet-500/10 text-xs leading-none font-medium text-violet-200 transition-[gap,padding] duration-300 ease-in-out ${
+                className={`inline-flex h-8 min-w-8 max-w-full shrink-0 items-center justify-center overflow-hidden rounded-full border border-violet-400/20 bg-violet-500/10 text-xs leading-none font-medium text-violet-200 transition-[gap,padding] duration-300 ease-in-out ${
                   isExpanded ? "gap-1.5 px-3" : "gap-0 px-0"
                 }`}
               >

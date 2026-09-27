@@ -7,7 +7,7 @@ function DevBlog() {
   const { posts, isLoading } = useDevBlog();
 
   return (
-    <main className="relative flex min-h-screen flex-col gap-5 px-6 pb-16 pt-12 text-slate-100 lg:px-8">
+    <main className="relative flex min-h-screen flex-col gap-5 px-6 pb-16 pt-12 text-slate-900 lg:px-8 dark:text-slate-100">
       <section className="page-section" id="devblog">
         <article className="section-card overflow-hidden">
           <h1 className="text-[clamp(2.4rem,4.4vw,3.8rem)] font-semibold">
@@ -25,20 +25,22 @@ function DevBlog() {
               {posts.map((post) => (
                 <div
                   key={post.slug}
-                  className="flex flex-col gap-2 rounded-[1.25rem] border border-white/10 bg-slate-800/70 p-5 text-slate-100"
+                  className="flex flex-col gap-2 rounded-[1.25rem] border border-slate-900/10 bg-slate-100/70 p-5 text-slate-900 dark:border-white/10 dark:bg-slate-800/70 dark:text-slate-100"
                 >
                   <h2 className="text-lg font-semibold">{post.title}</h2>
-                  <p className="text-sm text-slate-400">
+                  <p className="text-sm text-slate-600 dark:text-slate-400">
                     {new Date(post.publishedAt).toLocaleDateString()}
                   </p>
-                  <p className="text-sm leading-7 text-slate-300">
+                  <p className="text-sm leading-7 text-slate-700 dark:text-slate-300">
                     {post.summary}
                   </p>
                 </div>
               ))}
             </div>
           ) : (
-            <p className="text-sm text-slate-400">No posts yet.</p>
+            <p className="text-sm text-slate-600 dark:text-slate-400">
+              No posts yet.
+            </p>
           )}
         </article>
       </section>

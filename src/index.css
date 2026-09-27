@@ -1,15 +1,22 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   font-family: Inter, "Segoe UI", Roboto, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  color: #f8fafc;
-  background: #03071d;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: #0f172a;
+  background: #f8fafc;
+}
+
+:root.dark {
+  color: #f8fafc;
+  background: #03071d;
 }
 
 html {
@@ -24,7 +31,8 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  color: #f8fafc;
+  color: inherit;
+  background: inherit;
 }
 
 #root {
@@ -56,16 +64,16 @@ p {
   }
 
   .section-card {
-    @apply animate-[fadeUp_700ms_ease_both] rounded-[1.5rem] border border-white/10 bg-slate-900/90 p-4 backdrop-blur-sm sm:p-8;
+    @apply animate-[fadeUp_700ms_ease_both] rounded-[1.5rem] border border-slate-900/10 bg-white/90 p-4 backdrop-blur-sm sm:p-8 dark:border-white/10 dark:bg-slate-900/90;
   }
 
   .github-surface,
   .github-status {
-    @apply rounded-[1.125rem] border border-white/10 bg-gradient-to-br from-slate-900 to-slate-800;
+    @apply rounded-[1.125rem] border border-slate-900/10 bg-gradient-to-br from-slate-100 to-slate-200 dark:border-white/10 dark:from-slate-900 dark:to-slate-800;
   }
 
   .github-status {
-    @apply flex min-h-[13.75rem] items-center justify-center p-4 text-center text-slate-300;
+    @apply flex min-h-[13.75rem] items-center justify-center p-4 text-center text-slate-600 dark:text-slate-300;
   }
 
   .focus-ring {

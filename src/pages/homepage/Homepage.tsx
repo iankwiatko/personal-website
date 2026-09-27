@@ -18,7 +18,7 @@ function Homepage() {
     : [];
 
   return (
-    <main className="relative flex min-h-screen flex-col gap-5 px-6 pb-16 pt-12 text-slate-100 lg:px-8">
+    <main className="relative flex min-h-screen flex-col gap-5 px-6 pb-16 pt-12 text-slate-900 lg:px-8 dark:text-slate-100">
       <section className="page-section" id="intro">
         <article className="section-card overflow-hidden">
           <div className="relative z-10">
@@ -26,10 +26,10 @@ function Homepage() {
               Ian Kwiatkowski
             </h1>
 
-            <h2 className="mt-3 text-base font-semibold text-slate-300">
+            <h2 className="mt-3 text-base font-semibold text-slate-600 dark:text-slate-300">
               Software Engineer II • Full-Stack Developer
             </h2>
-            <p className="mt-4 text-base leading-8 text-slate-400">
+            <p className="mt-4 text-base leading-8 text-slate-600 dark:text-slate-400">
               Software Engineer and BS of Computer Science and Engineering
               graduate from The Ohio State University, with hands-on experience
               in full-stack agile web development. I've worked on diverse
@@ -40,16 +40,16 @@ function Homepage() {
               related!
             </p>
 
-            <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-base font-medium text-slate-400">
+            <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-base font-medium text-slate-600 dark:text-slate-400">
               <a
-                className="focus-ring inline-flex items-center gap-2 transition-colors hover:text-slate-50"
+                className="focus-ring inline-flex items-center gap-2 transition-colors hover:text-slate-900 dark:hover:text-slate-50"
                 href="mailto:iankwiatko@gmail.com"
               >
                 <Mail size={18} />
                 Email
               </a>
               <a
-                className="focus-ring inline-flex items-center gap-1 transition-colors hover:text-slate-50"
+                className="focus-ring inline-flex items-center gap-1 transition-colors hover:text-slate-900 dark:hover:text-slate-50"
                 href="https://www.linkedin.com/in/iankwaitko/"
                 target="_blank"
                 rel="noreferrer"
@@ -58,7 +58,7 @@ function Homepage() {
                 LinkedIn
               </a>
               <a
-                className="focus-ring inline-flex items-center gap-2 transition-colors hover:text-slate-50"
+                className="focus-ring inline-flex items-center gap-2 transition-colors hover:text-slate-900 dark:hover:text-slate-50"
                 href="https://github.com/iankwiatko"
                 target="_blank"
                 rel="noreferrer"
@@ -82,7 +82,7 @@ function Homepage() {
                   <div className="grid gap-6 md:grid-cols-2 md:items-stretch">
                     <div className="flex min-w-0 flex-col gap-3 md:pt-3">
                       <a
-                        className="focus-ring group -m-2 flex flex-col gap-3 rounded-xl p-2 text-inherit no-underline transition-colors duration-200 hover:bg-white/5 sm:flex-row sm:items-center sm:justify-between"
+                        className="focus-ring group -m-2 flex flex-col gap-3 rounded-xl p-2 text-inherit no-underline transition-colors duration-200 hover:bg-slate-900/5 sm:flex-row sm:items-center sm:justify-between dark:hover:bg-white/5"
                         href={githubUserData.html_url}
                         target="_blank"
                         rel="noreferrer"
@@ -90,30 +90,30 @@ function Homepage() {
                       >
                         <div className="flex min-w-0 items-center gap-3">
                           <img
-                            className="h-14 w-14 rounded-full border border-white/10"
+                            className="h-14 w-14 rounded-full border border-slate-900/10 dark:border-white/10"
                             src={githubUserData.avatar_url}
                             alt={`${githubUserData.login} avatar`}
                           />
                           <div className="min-w-0 space-y-1">
-                            <h3 className="truncate text-base font-semibold leading-6 text-slate-50">
+                            <h3 className="truncate text-base font-semibold leading-6 text-slate-900 dark:text-slate-50">
                               {githubUserData.name ?? githubUserData.login}
                             </h3>
-                            <p className="truncate text-sm leading-6 text-slate-300">
+                            <p className="truncate text-sm leading-6 text-slate-600 dark:text-slate-300">
                               @{githubUserData.login}
                             </p>
                           </div>
                         </div>
 
-                        <div className="grid w-full min-w-0 grid-cols-3 divide-x divide-white/10 rounded-xl border border-white/10 bg-white/5 p-1 transition-colors duration-200 group-hover:border-white/20 sm:ml-3 sm:w-auto sm:flex-1">
+                        <div className="grid w-full min-w-0 grid-cols-3 divide-x divide-slate-900/10 rounded-xl border border-slate-900/10 bg-slate-900/5 p-1 transition-colors duration-200 group-hover:border-slate-900/20 sm:ml-3 sm:w-auto sm:flex-1 dark:divide-white/10 dark:border-white/10 dark:bg-white/5 dark:group-hover:border-white/20">
                           {stats.map(([label, value]) => (
                             <div
                               className="flex flex-col items-center gap-0.5 px-1.5 py-3"
                               key={label}
                             >
-                              <strong className="text-sm font-semibold text-slate-50">
+                              <strong className="text-sm font-semibold text-slate-900 dark:text-slate-50">
                                 {value}
                               </strong>
-                              <span className="text-[0.6rem] font-medium uppercase tracking-wide text-slate-400">
+                              <span className="text-[0.6rem] font-medium uppercase tracking-wide text-slate-600 dark:text-slate-400">
                                 {label}
                               </span>
                             </div>
@@ -131,13 +131,13 @@ function Homepage() {
                       </div>
                     </div>
 
-                    <div className="flex min-w-0 flex-col gap-2 border-t border-white/10 pt-3 md:border-l md:border-t-0 md:pl-6 md:pt-0">
+                    <div className="flex min-w-0 flex-col gap-2 border-t border-slate-900/10 pt-3 md:border-l md:border-t-0 md:pl-6 md:pt-0 dark:border-white/10">
                       <div className="flex items-center justify-between gap-3">
-                        <h4 className="text-sm font-semibold text-slate-200">
+                        <h4 className="text-sm font-semibold text-slate-800 dark:text-slate-200">
                           Recent commits
                         </h4>
                         <a
-                          className="focus-ring inline-flex rounded-lg p-2 text-slate-400 transition hover:bg-white/10 hover:text-slate-50"
+                          className="focus-ring inline-flex rounded-lg p-2 text-slate-600 transition hover:bg-slate-900/10 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-white/10 dark:hover:text-slate-50"
                           href="https://github.com/search?q=author%3Aiankwiatko&type=commits"
                           target="_blank"
                           rel="noreferrer"
@@ -152,22 +152,22 @@ function Homepage() {
                           {githubUserData.recentCommits.map((commit) => (
                             <a
                               key={commit.sha}
-                              className="focus-ring flex min-w-0 flex-col gap-0.5 rounded-lg border border-transparent bg-white/5 px-3 py-2 text-left transition duration-200 hover:-translate-y-0.5 hover:border-cyan-300/20 hover:bg-white/10 hover:shadow-[0_8px_18px_rgba(2,6,23,0.2)]"
+                              className="focus-ring flex min-w-0 flex-col gap-0.5 rounded-lg border border-transparent bg-slate-900/5 px-3 py-2 text-left transition duration-200 hover:-translate-y-0.5 hover:border-cyan-300/20 hover:bg-slate-900/10 hover:shadow-[0_8px_18px_rgba(2,6,23,0.08)] dark:bg-white/5 dark:hover:bg-white/10 dark:hover:shadow-[0_8px_18px_rgba(2,6,23,0.2)]"
                               href={commit.url}
                               target="_blank"
                               rel="noreferrer"
                             >
-                              <span className="truncate text-sm text-slate-200">
+                              <span className="truncate text-sm text-slate-800 dark:text-slate-200">
                                 {commit.message}
                               </span>
-                              <span className="text-xs text-slate-400">
+                              <span className="text-xs text-slate-600 dark:text-slate-400">
                                 {commit.repository}
                               </span>
                             </a>
                           ))}
                         </div>
                       ) : (
-                        <p className="text-sm text-slate-400">
+                        <p className="text-sm text-slate-600 dark:text-slate-400">
                           No recent public commits found.
                         </p>
                       )}
@@ -192,7 +192,7 @@ function Homepage() {
               </div>
             )}
           </div>
-          <div className="github-surface mt-5 divide-y divide-white/10 overflow-hidden">
+          <div className="github-surface mt-5 divide-y divide-slate-900/10 overflow-hidden dark:divide-white/10">
             {projects.map((project) => (
               <ProjectCard
                 key={project.title}

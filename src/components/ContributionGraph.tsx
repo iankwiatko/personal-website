@@ -8,11 +8,11 @@ type ContributionGraphProps = {
 const WEEKS_TO_SHOW = 13;
 const DAYS_PER_WEEK = 7;
 const LEVEL_CLASSES = [
-  "bg-[#161b22]",
-  "bg-[#0e4429]",
-  "bg-[#006d32]",
-  "bg-[#26a641]",
-  "bg-[#39d353]",
+  "bg-slate-900/10 dark:bg-[#161b22]",
+  "bg-[#9be9a8] dark:bg-[#0e4429]",
+  "bg-[#40c463] dark:bg-[#006d32]",
+  "bg-[#30a14e] dark:bg-[#26a641]",
+  "bg-[#216e39] dark:bg-[#39d353]",
 ];
 
 function ContributionGraph({
@@ -34,12 +34,12 @@ function ContributionGraph({
   );
 
   return (
-    <div className="w-full shrink-0 rounded-xl border border-white/10 bg-white/5 p-2">
+    <div className="w-full shrink-0 rounded-xl border border-slate-900/10 bg-slate-900/5 p-2 dark:border-white/10 dark:bg-white/5">
       <div className="mb-1.5 flex items-center justify-between gap-2">
-        <span className="text-[0.6rem] font-medium uppercase tracking-wide text-slate-400">
+        <span className="text-[0.6rem] font-medium uppercase tracking-wide text-slate-600 dark:text-slate-400">
           Contributions
         </span>
-        <span className="text-xs font-semibold text-slate-200">
+        <span className="text-xs font-semibold text-slate-800 dark:text-slate-200">
           {isUnavailable ? "Unavailable" : totalContributions}
         </span>
       </div>

@@ -16,24 +16,26 @@ export function ProjectCard({
 }: ProjectCardProps) {
   return (
     <div
-      className={`flex flex-col gap-1 p-3 text-slate-100 transition-colors duration-200 sm:p-4 ${
-        isExpanded ? "bg-white/5" : "hover:bg-white/5"
+      className={`flex flex-col gap-1 p-3 text-slate-900 transition-colors duration-200 sm:p-4 dark:text-slate-100 ${
+        isExpanded
+          ? "bg-slate-900/5 dark:bg-white/5"
+          : "hover:bg-slate-900/5 dark:hover:bg-white/5"
       }`}
     >
       <div className="flex flex-wrap items-center gap-3">
         <button
           type="button"
-          className="focus-ring group -m-2 flex min-w-0 flex-1 items-center gap-2 rounded-lg p-2 text-left transition-colors duration-200 hover:bg-white/5"
+          className="focus-ring group -m-2 flex min-w-0 flex-1 items-center gap-2 rounded-lg p-2 text-left transition-colors duration-200 hover:bg-slate-900/5 dark:hover:bg-white/5"
           onClick={onToggle}
           aria-expanded={isExpanded}
         >
           <ChevronDown
             size={16}
-            className={`shrink-0 text-slate-400 transition-transform duration-200 group-hover:text-slate-200 ${
+            className={`shrink-0 text-slate-500 transition-transform duration-200 group-hover:text-slate-700 dark:text-slate-400 dark:group-hover:text-slate-200 ${
               isExpanded ? "rotate-180" : ""
             }`}
           />
-          <h3 className="min-w-0 truncate text-base leading-6 font-semibold whitespace-nowrap text-slate-50">
+          <h3 className="min-w-0 truncate text-base leading-6 font-semibold whitespace-nowrap text-slate-900 dark:text-slate-50">
             {project.title}
           </h3>
         </button>
@@ -43,7 +45,7 @@ export function ProjectCard({
             link.icon === "indev" ? (
               <span
                 key={link.label}
-                className={`inline-flex h-8 min-w-8 max-w-full shrink-0 items-center justify-center overflow-hidden rounded-full border border-violet-400/20 bg-violet-500/10 text-xs leading-none font-medium text-violet-200 transition-[gap,padding] duration-300 ease-in-out ${
+                className={`inline-flex h-8 min-w-8 max-w-full shrink-0 items-center justify-center overflow-hidden rounded-full border border-violet-500/20 bg-violet-500/10 text-xs leading-none font-medium text-violet-700 transition-[gap,padding] duration-300 ease-in-out dark:border-violet-400/20 dark:text-violet-200 ${
                   isExpanded ? "gap-1.5 px-3" : "gap-0 px-0"
                 }`}
               >
@@ -61,7 +63,7 @@ export function ProjectCard({
             ) : (
               <a
                 key={link.href}
-                className="focus-ring inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-400 transition hover:bg-white/10 hover:text-slate-50"
+                className="focus-ring inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 transition hover:bg-slate-900/10 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-white/10 dark:hover:text-slate-50"
                 href={link.href}
                 target="_blank"
                 rel="noreferrer"
@@ -83,7 +85,7 @@ export function ProjectCard({
         }`}
       >
         <div className="overflow-hidden pl-6">
-          <p className="pt-3 text-sm leading-7 text-slate-300">
+          <p className="pt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">
             {project.description}
           </p>
 

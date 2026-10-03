@@ -14,6 +14,20 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    title: "Robinhood Agentic Trader",
+    summary: "An agentic trading assistant integrated with Robinhood.",
+    description:
+      "An AI-powered trading agent exploring market research, portfolio monitoring, and trade workflows incorporated through Robinhood by leveraging its agentic trading feature. This project is in early development, and in the research phase. I plan to pursue this as my next big project.",
+    tech: ["python", "alpaca"],
+    links: [
+      {
+        label: "In Development",
+        href: undefined,
+        icon: "indev",
+      },
+    ],
+  },
+  {
     title: "Sleeperdex",
     summary:
       "Helping card collectors spot hidden value in bulk trading card sets.",

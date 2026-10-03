@@ -39,6 +39,11 @@ export const tag = {
     colorClass:
       "border-blue-500/20 bg-blue-500/10 text-blue-700 dark:border-blue-400/20 dark:text-blue-200",
   },
+  alpaca: {
+    label: "Alpaca",
+    colorClass:
+      "border-lime-500/20 bg-lime-500/10 text-lime-700 dark:border-lime-400/20 dark:text-lime-200",
+  },
 } as const;
 
 export type TagName = keyof typeof tag;
